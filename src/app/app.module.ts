@@ -22,7 +22,8 @@ import { PositionModule } from './position/position.module';
     WarehouseModule,
     EmployeeModule,
     GoodsModule,
-    PositionModule
+    PositionModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

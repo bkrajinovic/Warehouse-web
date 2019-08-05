@@ -1,1 +1,24 @@
-<p>warehouse-list works!</p>
+<div>
+  <table class="table table-hover">
+
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Street</th>
+        <th scope="col">CityId</th>
+        <th scope="col">CreatedAt</th>
+        <th scope="col">UpdatedAt</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let warehouse of warehouses">
+        <td>{{ warehouse.id }}</td>
+        <td>{{ warehouse.name }}</td>
+        <td>{{ warehouse.street }}</td>
+        <td>{{ warehouse.cityId }}</td>
+        <td>{{ warehouse.createdAt }}</td>
+        <td>{{ warehouse.updatedAt }}</td>
+    </tbody>
+  </table>
+</div>

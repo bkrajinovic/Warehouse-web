@@ -1,9 +1,21 @@
 <div>
-        <table>
-            <tr *ngFor="let city of cities">
-                <td>{{ city.id }}</td>
-                <td>{{ city.name }}</td>
-                <td>{{ city.zip }}</td>
-            </tr>
-        </table>
-    </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Zip</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let city of cities">
+        <td>{{ city.id }}</td>
+        <td>{{ city.name }}</td>
+        <td>{{ city.zip }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+

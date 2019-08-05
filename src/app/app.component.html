@@ -1,46 +1,33 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a [routerLink]="['/']" className="nav-link">
-          Home | 
-        </a>
-      </li>
-      <li class="nav-item">
-        <a [routerLink]="['/cities']" className="nav-link">
-          Cities |
-        </a>
-      </li>
-      <li class="nav-item">
-        <a [routerLink]="['/warehouses']" className="nav-link">
-          Warehouses |
-        </a>
-      </li>
-      <li class="nav-item">
-          <a [routerLink]="['/employees']" className="nav-link">
-            Employees |
-          </a>
-        </li>
-        <li class="nav-item">
-            <a [routerLink]="['/goods']" className="nav-link">
-              Goods |
-            </a>
-          </li>
-          <li class="nav-item">
-              <a [routerLink]="['/positions']" className="nav-link">
-                Positions |
-              </a>
-            </li>
-      </ul>
-  </div>
+<header>
+<nav class="nav">
+  <div>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a [routerLink]="['/']" class="nav-link" href="#">Home</a>
+  </li>
+  <li class="nav-item">
+    <a [routerLink]="['/cities']" class="nav-link" href="#">City</a>
+  </li>
+  <li class="nav-item">
+    <a [routerLink]="['/warehouses']" class="nav-link" href="#">Warehouse</a>
+  </li>
+  <li class="nav-item">
+    <a [routerLink]="['/employees']" class="nav-link" href="#">Employee</a>
+  </li>
+  <li class="nav-item">
+    <a [routerLink]="['/goods']" class="nav-link" href="#">Goods</a>
+  </li>
+  <li class="nav-item">
+    <a [routerLink]="['/positions']" class="nav-link" href="#">Position</a>
+  </li>
+</ul>
+</div>
 </nav>
+</header>
 
 <div class="container">
-  <router-outlet></router-outlet>
-</div>
+    <router-outlet></router-outlet>
+  </div>
+  
+
+

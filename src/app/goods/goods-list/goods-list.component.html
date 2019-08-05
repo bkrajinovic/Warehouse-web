@@ -1,1 +1,36 @@
-<p>goods-list works!</p>
+<div>
+        <table class="table table-hover">
+
+            <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">ExpirationDate</th>
+                        <th scope="col">DateOfManufacture</th>
+                        <th scope="col">MinimalAmount</th>
+                        <th scope="col">CurrentAmount</th>
+                        <th scope="col">UnitOfMeasure</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">WarehouseId</th>
+                        <th scope="col">PositionId</th>
+                        <th scope="col">CreatedAt</th>
+                        <th scope="col">UpdatedAt</th>
+                    </tr>
+                    </thead>
+              <tbody>    
+        <tr *ngFor="let goods of goods">
+            <td>{{ goods.Id }}</td>
+            <td>{{ goods.name }}</td>
+            <td>{{ goods.expirationDate }}</td>
+            <td>{{ goods.dateOfManufacture }}</td>
+            <td>{{ goods.minimalAmount }}</td>
+            <td>{{ goods.currentAmount }}</td>
+            <td>{{ goods.unitOfMeasure }}</td>
+            <td>{{ goods.price }}</td>
+            <td>{{ goods.warehouseId }}</td>
+            <td>{{ goods.positionId }}</td>
+            <td>{{ goods.createdAt }}</td>
+            <td>{{ goods.updatedAt }}</td>
+        </tbody>  
+    </table>
+</div>
