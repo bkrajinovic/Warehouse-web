@@ -17,4 +17,21 @@ export class CityService {
   public getAll() {
     return this.http.get(environment.apiUrl + this.CITIES_URL);
   }
+
+  public getOne(id: number) {
+    return this.http.get(environment.apiUrl + this.CITIES_URL + '/' + id);
+  }
+
+  public post(item: any) {
+    return this.http.post(environment.apiUrl + this.CITIES_URL, item);
+  }
+
+  public put(id: number, item: any) {
+    return this.http.put(environment.apiUrl + this.CITIES_URL + '/' + id, item);
+  }
+
+  public delete(id: number) {
+    return this.http.delete(environment.apiUrl + this.CITIES_URL + '/' + id);
+  }
 }
+

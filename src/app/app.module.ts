@@ -12,7 +12,8 @@ import { PositionModule } from './position/position.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    
   ],
   imports: [
     BrowserModule,
