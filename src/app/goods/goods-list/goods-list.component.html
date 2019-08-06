@@ -1,9 +1,9 @@
+<div class="container">
 <div>
         <table class="table table-sm">
 
             <thead>
                     <tr>
-                        <th scope="col">Id</th>
                         <th scope="col">Name</th>
                         <th scope="col">ExpirationDate</th>
                         <th scope="col">DateOfManufacture</th>
@@ -11,15 +11,13 @@
                         <th scope="col">CurrentAmount</th>
                         <th scope="col">UnitOfMeasure</th>
                         <th scope="col">Price</th>
-                        <th scope="col">WarehouseId</th>
-                        <th scope="col">PositionId</th>
-                        <th scope="col">CreatedAt</th>
-                        <th scope="col">UpdatedAt</th>
+                        <th scope="col">Warehouse</th>
+                        <th scope="col">Actions</th>
+
                     </tr>
                     </thead>
               <tbody>    
         <tr *ngFor="let goods of goods">
-            <td>{{ goods.Id }}</td>
             <td>{{ goods.name }}</td>
             <td>{{ goods.expirationDate }}</td>
             <td>{{ goods.dateOfManufacture }}</td>
@@ -27,10 +25,10 @@
             <td>{{ goods.currentAmount }}</td>
             <td>{{ goods.unitOfMeasure }}</td>
             <td>{{ goods.price }}</td>
-            <td>{{ goods.warehouseId }}</td>
-            <td>{{ goods.positionId }}</td>
-            <td>{{ goods.createdAt }}</td>
-            <td>{{ goods.updatedAt }}</td>
+            <td>{{ goods.warehouse.name }}</td>
+            <td><button class="btn bg-secondary"><i class="fa fa-edit"></i></button> <button class="btn ml-3 bg-danger"><i class="fa fa-trash"></i></button></td>
+
         </tbody>  
     </table>
+</div>
 </div>

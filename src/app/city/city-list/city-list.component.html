@@ -1,21 +1,22 @@
-<div>
+<div class="container">
   <table class="table table-hover">
     <thead>
       <tr>
-        <th scope="col">Id</th>
         <th scope="col">Name</th>
         <th scope="col">Zip</th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let city of cities">
-        <td>{{ city.id }}</td>
         <td>{{ city.name }}</td>
         <td>{{ city.zip }}</td>
+        <td><button class="btn bg-secondary"><i class="fa fa-edit"></i></button> <button class="btn ml-3 bg-danger"><i class="fa fa-trash"></i></button></td>
+
+
       </tr>
     </tbody>
   </table>
 </div>
-
 
 
