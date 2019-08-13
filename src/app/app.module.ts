@@ -9,6 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { EmployeeModule } from './employee/employee.module';
 import { GoodsModule } from './goods/goods.module';
 import { PositionModule } from './position/position.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { PositionModule } from './position/position.module';
     EmployeeModule,
     GoodsModule,
     PositionModule,
-    
+    HomeModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()    
   ],
   providers: [],
   bootstrap: [AppComponent]

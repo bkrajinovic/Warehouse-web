@@ -1,4 +1,8 @@
 <div class="container">
+        <div class="col-sm-12 mb-3">
+
+            <button class="btn btn-outline-primary" (click)="onAdd()">Add <i class="fa fa-plus"></i></button>
+        </div>
 <div>
         <table class="table table-sm">
 
@@ -19,14 +23,15 @@
               <tbody>    
         <tr *ngFor="let goods of goods">
             <td>{{ goods.name }}</td>
-            <td>{{ goods.expirationDate }}</td>
-            <td>{{ goods.dateOfManufacture }}</td>
+            <td>{{ goods.expirationDate | date: 'dd.MM.yyyy.' }}</td>
+            <td>{{ goods.dateOfManufacture | date: 'dd.MM.yyyy.' }}</td>
             <td>{{ goods.minimalAmount }}</td>
             <td>{{ goods.currentAmount }}</td>
             <td>{{ goods.unitOfMeasure }}</td>
             <td>{{ goods.price }}</td>
             <td>{{ goods.warehouse.name }}</td>
-            <td><button class="btn bg-secondary"><i class="fa fa-edit"></i></button> <button class="btn ml-3 bg-danger"><i class="fa fa-trash"></i></button></td>
+            <td><button class="btn bg-light" (click)="onEdit(goods.id)"><i class="fa fa-edit"></i></button>
+                 <button class="btn ml-3 bg-danger" (click)="onDelete(goods.id)"><i class="fa fa-trash"></i></button></td>
 
         </tbody>  
     </table>

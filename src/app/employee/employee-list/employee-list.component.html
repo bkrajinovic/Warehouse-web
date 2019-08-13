@@ -1,29 +1,31 @@
 <div class="container">
-<div>
-        <table class="table table-hover">
+    <div class="col-sm-12 mb-3">
 
-                <thead>
-                        <tr>
-                            <th scope="col">FirstName</th>
-                            <th scope="col">LastName</th>
-                            <th scope="col">Warehouse</th>
-                            <th scope="col">CreatedAt</th>
-                            <th scope="col">UpdatedAt</th>
-                            <th scope="col">Actions</th>
+        <button class="btn btn-outline-primary" (click)="onAdd()">Add <i class="fa fa-plus"></i></button>
+    </div>
+    <table class="table table-hover">
+
+        <thead>
+            <tr>
+                <th scope="col">FirstName</th>
+                <th scope="col">LastName</th>
+                <th scope="col">Warehouse</th>
+                <th scope="col">CreatedAt</th>
+                <th scope="col">UpdatedAt</th>
+                <th scope="col">Actions</th>
 
 
-                            </tr>
-                        </thead>
-                        <tbody>
-        <tr *ngFor="let employee of employees">
-            <td>{{ employee.firstName }}</td>
-            <td>{{ employee.lastName }}</td>
-            <td>{{ employee.warehouse.name }}</td>
-            <td>{{ employee.createdAt | date: 'dd.MM.yyyy.'}}</td>
-            <td>{{ employee.updatedAt | date: 'dd.MM.yyyy.'}}</td>
-            <td><button class="btn bg-secondary"><i class="fa fa-edit"></i></button> <button class="btn ml-3 bg-danger"><i class="fa fa-trash"></i></button></td>
-
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees">
+                <td>{{ employee.firstName }}</td>
+                <td>{{ employee.lastName }}</td>
+                <td>{{ employee.warehouse.name }}</td>
+                <td>{{ employee.createdAt | date: 'dd.MM.yyyy.'}}</td>
+                <td>{{ employee.updatedAt | date: 'dd.MM.yyyy.'}}</td>
+                <td><button class="btn bg-light" (click)="onEdit(employee.id)"><i class="fa fa-edit"></i></button>
+                    <button class="btn ml-3 bg-danger" (click)="onDelete(employee.id)"><i class="fa fa-trash"></i></button></td>
         </tbody>
     </table>
-</div>
 </div>

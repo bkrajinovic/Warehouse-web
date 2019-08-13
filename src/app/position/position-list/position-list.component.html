@@ -1,28 +1,33 @@
 <div class="container">
-<div>
-        <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Shelf</th>
-                    <th scope="col">PositionOnShelf</th>
-                    <th scope="col">CreatedAt</th>
-                    <th scope="col">UpdatedAt</th>
-                    <th scope="col">Actions</th>
+    <div class="col-sm-12 mb-3">
 
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let position of positions">
-                    <td>{{ position.name }}</td>
-                    <td>{{ position.shelf }}</td>
-                    <td>{{ position.positionOnShelf }}</td>
-                    <td>{{ position.createdAt | date: 'dd.MM.yyyy.' }}</td>
-                    <td>{{ position.updatedAt | date: 'dd.MM.yyyy.'}}</td>
-                    <td><button class="btn bg-secondary"><i class="fa fa-edit"></i></button> <button class="btn ml-3 bg-danger"><i class="fa fa-trash"></i></button></td>
+      <button class="btn btn-outline-primary" (click)="onAdd()">Add <i class="fa fa-plus"></i></button>
+    </div>
+  <div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Shelf</th>
+          <th scope="col">PositionOnShelf</th>
+          <th scope="col">CreatedAt</th>
+          <th scope="col">UpdatedAt</th>
+          <th scope="col">Actions</th>
 
-                  </tr>
-                </tbody>
-              </table>
-</div>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let position of positions">
+          <td>{{ position.name }}</td>
+          <td>{{ position.shelf }}</td>
+          <td>{{ position.positionOnShelf }}</td>
+          <td>{{ position.createdAt | date: 'dd.MM.yyyy.' }}</td>
+          <td>{{ position.updatedAt | date: 'dd.MM.yyyy.'}}</td>
+          <td><button class="btn bg-light" (click)="onEdit(position.id)"><i class="fa fa-edit"></i></button> 
+            <button class="btn ml-3 bg-danger" (click)="onDelete(position.id)"><i class="fa fa-trash"></i></button></td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

@@ -1,0 +1,24 @@
+<div class="container">
+  <div [hidden]="errorMessage.length == 0">{{ errorMessage }}</div>
+  <form (submit)="onSubmit()" #ngForm="ngForm">
+    <input title="id" name="id" type="hidden" [(ngModel)]="employee.id" />
+    <div class="form-group">
+      <label for="firstName">First Name *</label>
+      <input required type="text" name="firstName" [(ngModel)]="employee.firstName" class="form-control" id="firstName">
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name *</label>
+      <input required name="lastName" type="text" title="lastName" [(ngModel)]="employee.lastName" class="form-control"
+        id="lastName">
+    </div>
+    <div class="form-group">
+      <label for="warehouse">Warehouse *</label>
+      <select required class="form-control" name="warehouseId" [(ngModel)]="selectedWarehouseId">
+        <option *ngFor="let warehouse of warehouses" [value]="warehouse.id">
+          {{warehouse.name}}
+        </option>
+      </select>
+    </div>
+    <button [disabled]="!ngForm.form.valid" type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

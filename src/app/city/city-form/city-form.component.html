@@ -1,0 +1,13 @@
+<div class="container">
+  <form (submit)="onSubmit()" #ngForm="ngForm">
+    <input  title="id" name="id" type="hidden" [(ngModel)]="city.id" />
+    <div class="form-group">
+      <label for="name">Name *</label>
+      <input required type="text" name="name" [(ngModel)]="city.name" class="form-control" id="name">
+    </div>
+    <div class="form-group">
+      <label for="zip">Zip</label>
+      <input  name="zip" type="text" title="zip" [(ngModel)]="city.zip" class="form-control" id="zip">
+    </div>  
+      <button [disabled]="!ngForm.form.valid" type="submit" class="btn btn-primary">Submit</button>  </form>
+</div>

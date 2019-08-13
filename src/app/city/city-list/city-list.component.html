@@ -1,4 +1,8 @@
 <div class="container">
+    <div class="col-sm-12 mb-3">
+
+      <button class="btn btn-outline-primary" (click)="onAdd()">Add <i class="fa fa-plus"></i></button>
+    </div>
   <table class="table table-hover">
     <thead>
       <tr>
@@ -11,7 +15,8 @@
       <tr *ngFor="let city of cities">
         <td>{{ city.name }}</td>
         <td>{{ city.zip }}</td>
-        <td><button class="btn bg-secondary"><i class="fa fa-edit"></i></button> <button class="btn ml-3 bg-danger"><i class="fa fa-trash"></i></button></td>
+        <td><button class="btn bg-light" (click)="onEdit(city.id)"><i class="fa fa-edit"></i></button> 
+          <button class="btn ml-3 bg-danger"  (click)="onDelete(city.id)"><i class="fa fa-trash"></i></button></td>
 
 
       </tr>

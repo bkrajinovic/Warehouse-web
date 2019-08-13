@@ -1,4 +1,8 @@
 <div class="container">
+    <div class="col-sm-12 mb-3">
+
+        <button class="btn btn-outline-primary" (click)="onAdd()">Add <i class="fa fa-plus"></i></button>
+            </div>
 <div>
   <table class="table table-hover">
 
@@ -18,7 +22,8 @@
         <td>{{ warehouse.street }}</td>
         <td>{{ warehouse.city.name }}</td>
         <td>{{ warehouse.createdAt | date: 'dd.MM.yyyy.' }}</td>
-        <td><button class="btn bg-secondary"><i class="fa fa-edit"></i></button> <button class="btn ml-3 bg-danger"><i class="fa fa-trash"></i></button></td>
+        <td><button class="btn bg-light" (click)="onEdit(warehouse.id)"><i class="fa fa-edit"></i></button> 
+           <button class="btn ml-3 bg-danger" (click)="onDelete(warehouse.id)"><i class="fa fa-trash"></i></button></td>
 
     </tbody>
   </table>

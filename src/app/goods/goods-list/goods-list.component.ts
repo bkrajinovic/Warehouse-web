@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GoodsService } from '../goods.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-goods-list',
@@ -9,7 +11,9 @@ import { GoodsService } from '../goods.service';
 export class GoodsListComponent implements OnInit {
 
   constructor(
-    private goodsService: GoodsService
+    private goodsService: GoodsService,
+    private toastr: ToastrService,
+    private router: Router
   ) { }
 
 
@@ -17,10 +21,35 @@ export class GoodsListComponent implements OnInit {
   private goods = [];
   
   ngOnInit() {
+    this.getAllGoods();
+  }
+
+
+  getAllGoods() {
     this.goodsService.getAll().subscribe((response: any) => {
       this.goods = response;
     });
+  }
+
+
+  onDelete(goodsId) {
+    if(confirm('Da li ste sigurni?')) {
+      this.goodsService.deleteOne(goodsId).subscribe(result => {
+        this.getAllGoods();
+        this.toastr.success('Uspjesno obrisano');
+      })
     }
+  }
+
+  onAdd() {
+    this.router.navigate(['goods/new']);
+  }
+
+  onEdit(goodsId) {
+    this.router.navigate(['goods', goodsId]);
+  }
+  
+
 
 
 }

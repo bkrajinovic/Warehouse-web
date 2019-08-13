@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PositionService } from '../position.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-position-list',
@@ -9,7 +11,9 @@ import { PositionService } from '../position.service';
 export class PositionListComponent implements OnInit {
 
   constructor(
-    private PositionService: PositionService
+    private positionService: PositionService,
+    private toastr: ToastrService,
+    private router: Router
   ) { }
 
 
@@ -17,8 +21,31 @@ export class PositionListComponent implements OnInit {
   private positions = [];
   
   ngOnInit() {
-    this.PositionService.getAll().subscribe((response: any) => {
+    this.getAllPositions();
+  }
+
+
+  getAllPositions() {
+    this.positionService.getAll().subscribe((response: any) => {
       this.positions = response;
     });
+  }
+
+
+  onDelete(positionId) {
+    if(confirm('Da li ste sigurni?')) {
+      this.positionService.deleteOne(positionId).subscribe(result => {
+        this.getAllPositions();
+        this.toastr.success('Uspjesno obrisano');
+      })
     }
+  }
+
+  onAdd() {
+    this.router.navigate(['positions/new']);
+  }
+
+  onEdit(positionId) {
+    this.router.navigate(['positions', positionId]);
+  }
 }
