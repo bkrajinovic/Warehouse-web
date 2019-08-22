@@ -1,5 +1,4 @@
-<div class="container">
-  <div [hidden]="errorMessage.length == 0">{{ errorMessage }}</div>
+<div class="container mt-5 pb-5">  <div [hidden]="errorMessage.length == 0">{{ errorMessage }}</div>
   <form (submit)="onSubmit()" #ngForm="ngForm">
     <input title="id" name="id" type="hidden" [(ngModel)]="employee.id" />
     <div class="form-group">
@@ -19,6 +18,7 @@
         </option>
       </select>
     </div>
-    <button [disabled]="!ngForm.form.valid" type="submit" class="btn btn-primary">Submit</button>
+    <button (click)="goBack()" class="btn btn-outline-primary float-left">Cancel</button>
+    <button [disabled]="!ngForm.form.valid" type="submit" class="btn btn-primary float-right">Submit</button>
   </form>
 </div>

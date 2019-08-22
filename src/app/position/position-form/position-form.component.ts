@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PositionService } from '../position.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-position-form',
@@ -14,7 +16,8 @@ export class PositionFormComponent implements OnInit {
     private route: ActivatedRoute,
     private positionService: PositionService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private location: Location
   ) { }
 
   public position : any = {};
@@ -41,7 +44,7 @@ export class PositionFormComponent implements OnInit {
   onSubmit() {
     this.positionService.submit(this.position).subscribe(
       (response: any) => {
-        this.toastr.success('Bravo');
+        this.toastr.success('Success');
         this.router.navigate(['positions']);
       },
       (response: any) => {
@@ -49,6 +52,11 @@ export class PositionFormComponent implements OnInit {
         const firstKey = Object.keys(firstError)[0];
         this.errorMessage = firstError[firstKey][0];
       });
+  }
+
+  goBack() {
+    this.location.back();
+    return false;
   }
 
 }

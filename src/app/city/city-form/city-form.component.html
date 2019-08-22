@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-5 pb-5">
   <form (submit)="onSubmit()" #ngForm="ngForm">
     <input  title="id" name="id" type="hidden" [(ngModel)]="city.id" />
     <div class="form-group">
@@ -8,6 +8,7 @@
     <div class="form-group">
       <label for="zip">Zip</label>
       <input  name="zip" type="text" title="zip" [(ngModel)]="city.zip" class="form-control" id="zip">
-    </div>  
-      <button [disabled]="!ngForm.form.valid" type="submit" class="btn btn-primary">Submit</button>  </form>
+    </div>
+    <button (click)="goBack()" class="btn btn-outline-primary float-left">Cancel</button>   
+      <button [disabled]="!ngForm.form.valid" type="submit" class="btn btn-primary float-right">Submit</button>  </form>
 </div>

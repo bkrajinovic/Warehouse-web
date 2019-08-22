@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from '../employee.service';
 import { ToastrService } from 'ngx-toastr';
 import { WarehouseService } from 'src/app/warehouse/warehouse.service';
+import { Location } from '@angular/common';
+
 
 
 @Component({
@@ -17,7 +19,8 @@ export class EmployeeFormComponent implements OnInit {
     private employeeService: EmployeeService,
     private router: Router,
     private toastr: ToastrService,
-    private warehouseService: WarehouseService
+    private warehouseService: WarehouseService,
+    private location: Location
   ) { }
 
   public employee : any = {};
@@ -53,7 +56,7 @@ export class EmployeeFormComponent implements OnInit {
     this.employee.warehouseId = this.selectedWarehouseId;
     this.employeeService.submit(this.employee).subscribe(
       (response: any) => {
-        this.toastr.success('Bravo');
+        this.toastr.success('Success');
         this.router.navigate(['employees']);
       },
       (response: any) => {
@@ -70,5 +73,10 @@ export class EmployeeFormComponent implements OnInit {
         }
       );
   }
+  goBack() {
+    this.location.back();
+    return false;
+  }
+
 
 }

@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { WarehouseService } from '../warehouse.service';
 import { ToastrService } from 'ngx-toastr';
 import { CityService } from 'src/app/city/city.service';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-warehouse-form',
@@ -16,7 +18,8 @@ export class WarehouseFormComponent implements OnInit {
     private warehouseService: WarehouseService,
     private router: Router,
     private toastr: ToastrService,
-    private cityService: CityService
+    private cityService: CityService,
+    private location: Location
   ) { }
 
   public warehouse : any = {};
@@ -51,7 +54,7 @@ export class WarehouseFormComponent implements OnInit {
     this.warehouse.cityId = this.selectedCityId;
     this.warehouseService.submit(this.warehouse).subscribe(
       (response: any) => {
-        this.toastr.success('Bravo');
+        this.toastr.success('Success');
         this.router.navigate(['warehouses']);
       },
       (response: any) => {
@@ -67,6 +70,11 @@ export class WarehouseFormComponent implements OnInit {
           this.cities = response;
         }
       );
+  }
+
+  goBack() {
+    this.location.back();
+    return false;
   }
 
 }

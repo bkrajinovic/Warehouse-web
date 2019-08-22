@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CityService } from '../city.service';
 import { ToastrService } from 'ngx-toastr';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-city-form',
@@ -14,7 +15,8 @@ export class CityFormComponent implements OnInit {
     private route: ActivatedRoute,
     private cityService: CityService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private location: Location
 
   ) { }
 
@@ -42,7 +44,7 @@ export class CityFormComponent implements OnInit {
   onSubmit() {
     this.cityService.submit(this.city).subscribe(
       (response: any) => {
-        this.toastr.success('Bravo');
+        this.toastr.success('Success');
         this.router.navigate(['cities']);
       },
       (response: any) => {
@@ -50,6 +52,11 @@ export class CityFormComponent implements OnInit {
         const firstKey = Object.keys(firstError)[0];
         this.errorMessage = firstError[firstKey][0];
       });
+  }
+
+  goBack() {
+    this.location.back();
+    return false;
   }
 
 }
