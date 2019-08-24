@@ -8,37 +8,42 @@
         </div>
         <div class="form-group">
             <label for="expiration">Expiration Date</label>
-            <input name="expiration" type="text" title="expiration" [(ngModel)]="goods.expirationDate" class="form-control" id="expiration">
+            <input name="expiration" type="date" title="expiration" [(ngModel)]="goods.expirationDate" class="form-control" id="expiration">
         </div>
         <div class="form-group">
             <label for="manufacture">Date Of Manufacture</label>
-            <input name="manufacture" type="text" title="manufacture" [(ngModel)]="goods.dateOfManufacture" class="form-control" id="manufacture">
+            <input type="date" name="manufacture" [(ngModel)]="goods.dateOfManufacture" class="form-control"
+                id="manufacture">
         </div>
         <div class="form-group">
             <label for="minimal">Minimal Amount</label>
-            <input name="minimal" type="text" title="minimal" [(ngModel)]="goods.minimalAmount" class="form-control" id="minimal">
+            <input name="minimal" type="text" title="minimal" [(ngModel)]="goods.minimalAmount" class="form-control"
+                id="minimal">
         </div>
         <div class="form-group">
             <label for="current">Current Amount</label>
-            <input name="current" placeholder="50" type="text" title="current" [(ngModel)]="goods.currentAmount" class="form-control" id="current">
+            <input name="current" placeholder="50" type="text" title="current" [(ngModel)]="goods.currentAmount"
+                class="form-control" id="current">
         </div>
         <div class="form-group">
             <label for="measure">Unit Of Measure *</label>
-            <input required placeholder="pcs, liter, kg" name="measure" type="text" title="measure" [(ngModel)]="goods.unitOfMeasure" class="form-control" id="measure">
+            <input required placeholder="pcs, liter, kg" name="measure" type="text" title="measure"
+                [(ngModel)]="goods.unitOfMeasure" class="form-control" id="measure">
         </div>
         <div class="form-group">
             <label for="price">Price *</label>
-            <input required name="price" type="text" title="price" [(ngModel)]="goods.price" class="form-control" id="price">
+            <input required name="price" type="text" title="price" [(ngModel)]="goods.price" class="form-control"
+                id="price">
         </div>
         <div class="form-group">
             <label for="warehouse">Warehouse</label>
-            <select class="form-control" name="warehouseId" [(ngModel)]="selectedWarehouseId">  
-                <option *ngFor="let warehouse of warehouses" [value]="warehouse.id">  
-                  {{warehouse.name}}  
-                </option>  
-              </select>         
+            <select class="form-control" name="warehouseId" [(ngModel)]="selectedWarehouseId">
+                <option *ngFor="let warehouse of warehouses" [value]="warehouse.id">
+                    {{warehouse.name}}
+                </option>
+            </select>
         </div>
         <button (click)="goBack()" class="btn btn-outline-primary float-left">Cancel</button>
         <button [disabled]="!ngForm.form.valid" type="submit" class="btn btn-primary float-right">Submit</button>
-        </form>    
+    </form>
 </div>
