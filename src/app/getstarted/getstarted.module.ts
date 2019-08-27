@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { GetstartedRoutingModule } from './getstarted-routing.module';
 import { GetstartedListComponent } from './getstarted-list/getstarted-list.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [GetstartedListComponent],
   imports: [
     CommonModule,
-    GetstartedRoutingModule
+    GetstartedRoutingModule,
+    FormsModule
   ]
 })
 export class GetstartedModule { }

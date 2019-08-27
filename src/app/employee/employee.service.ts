@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { JwtHelper } from '../auth/jwt.helper';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,8 @@ import { environment } from 'src/environments/environment';
 export class EmployeeService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private jwt: JwtHelper
   ) { }
 
   private readonly EMPLOYEES_URL = 'employees';
@@ -23,7 +25,9 @@ export class EmployeeService {
   }
 
   public getAll() {
-    return this.http.get(environment.apiUrl + this.EMPLOYEES_URL);
+    const token = this.jwt.getFullToken();
+    let headers = new  HttpHeaders().set("Authorization", token);
+    return this.http.get(environment.apiUrl + this.EMPLOYEES_URL, { headers });
   }
 
   public getOne(employeeId) {

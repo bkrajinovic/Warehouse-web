@@ -23,12 +23,22 @@
   <li class="nav-item">
     <a [routerLink]="['/positions']" class="nav-link" href="#">Position</a>
   </li>
+  <li class="nav-item dropdown ml-auto" *ngIf="user && user.email && user.email.length > 0">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{ user.email }}
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
 </ul>
 </div>
 </nav>
 </header>
 
-<div class="mt-0 pb-0" style="min-height: 81vh; margin-left: 0">
+<div class="mt-0 pb-0" style="min-height: 81vh; margin-left: 0;">
     <router-outlet></router-outlet>
   </div>
 

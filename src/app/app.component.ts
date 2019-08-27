@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { JwtHelper } from './auth/jwt.helper';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +7,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
  
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
+  constructor(
+    private jwt: JwtHelper
+  ) { }
+
+  ngOnInit() {
+    this.setUser();
+  }
+
+  public user = {
+    email: ''
+  };
+
+  public setUser() {
+    this.user = this.jwt.getUser();
+  }
+
   title = 'Warehouse-web';
 }
