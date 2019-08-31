@@ -13,10 +13,10 @@
         <div class="tab-pane fade show active" id="pills-signin" role="tabpanel" aria-labelledby="pills-signin-tab">
           <div class="col-sm-12">
             <div class="text-center"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQahsQhQfCt715aYlsTLSv77Phj6sfYiokEfA6093Ses21hvjL_Qg" class="rounded-circle border p-1"></div>
-            <form (ngSubmit)="onSubmit()" #gejForma="ngForm" id="singninFrom">
+            <form (ngSubmit)="onSubmit()" #gForm="ngForm" id="singninFrom">
               <div class="form-group">
                 <label class="font-weight-bold">Email *</label>
-                <input type="text" name="email" id="email" [(ngModel)]="loginData.email" class="form-control" placeholder="Enter valid email" required>
+                <input pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" type="email" name="email" id="email" [(ngModel)]="loginData.email" class="form-control" placeholder="Enter valid email" required>
               </div>
               <div class="form-group">
                 <label class="font-weight-bold">Password *</label>
@@ -30,34 +30,34 @@
                 </div>
               </div>
               <div class="form-group">
-                <input type="submit" name="submit" value="Log In" class="btn btn-block btn-primary">
+                <input type="submit" [disabled]="!gForm.valid" name="submit" value="Log In" class="btn btn-block btn-primary">
               </div>
             </form>
-          </div>
+          </div>  
         </div>
         <div class="tab-pane fade" id="pills-signup" role="tabpanel" aria-labelledby="pills-signup-tab">
           <div class="col-sm-12">
                 <div class="text-center"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQahsQhQfCt715aYlsTLSv77Phj6sfYiokEfA6093Ses21hvjL_Qg" class="rounded-circle border p-1"></div>
-            <form method="post" id="singnupFrom">
+            <form (ngSubmit)="onRegister()" #ggForm="ngForm" id="singnupFrom">
               <div class="form-group">
                 <label class="font-weight-bold">Email *</label>
-                <input type="email" name="signupemail" id="signupemail" class="form-control" placeholder="Enter valid email" required>
+                <input pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" type="email" name="email" id="email" [(ngModel)]="registerData.email" class="form-control" placeholder="Enter valid email" required>
               </div>
               <div class="form-group">
                 <label class="font-weight-bold">First Name *</label>
-                <input type="text" name="signupusername" id="signupusername" class="form-control" placeholder="Enter your first name" required>
+                <input type="text" name="signupusername" id="signupusername" [(ngModel)]="registerData.firstName" class="form-control" placeholder="Enter your first name" required>
               </div>
               <div class="form-group">
                 <label class="font-weight-bold">Last Name *</label>
-                <input type="text" name="signupusername" id="signupusername" class="form-control" placeholder="Enter your last name" required>
+                <input type="text" name="signupusername" id="signupusername" [(ngModel)]="registerData.lastName" class="form-control" placeholder="Enter your last name" required>
               </div>
               <div class="form-group">
                 <label class="font-weight-bold">Password *</label>
-                <input type="password" name="signuppassword" id="signuppassword" class="form-control" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Must have at least 6 characters' : ''); if(this.checkValidity()) form.password_two.pattern = this.value;"
+                <input type="password" name="signuppassword" id="signuppassword" [(ngModel)]="registerData.password" class="form-control" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Must have at least 6 characters' : ''); if(this.checkValidity()) form.password_two.pattern = this.value;"
                   required>
               </div>
               <div class="form-group">
-                <input type="submit" name="signupsubmit" value="Register" class="btn btn-block btn-primary">
+                <input type="submit" [disabled]="!ggForm.valid" name="submit" value="Register" class="btn btn-block btn-primary">
               </div>
             </form>
           </div>

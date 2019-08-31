@@ -25,5 +25,10 @@ export class AppComponent implements OnInit {
     this.user = this.jwt.getUser();
   }
 
+  public logout() {
+    this.jwt.clear();
+    location.reload();
+  }
+
   title = 'Warehouse-web';
 }

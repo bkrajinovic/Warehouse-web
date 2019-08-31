@@ -33,10 +33,10 @@ export class CityListComponent implements OnInit {
 
 
   onDelete(cityId) {
-    if(confirm('Da li ste sigurni?')) {
+    if(confirm('Are you sure?')) {
       this.cityService.deleteOne(cityId).subscribe(result => {
         this.getAllCities();
-        this.toastr.success('Uspjesno obrisano');
+        this.toastr.success('Deleted successfully');
       })
     }
   }

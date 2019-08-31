@@ -33,10 +33,10 @@ export class EmployeeListComponent implements OnInit {
 
 
   onDelete(employeeId) {
-    if(confirm('Da li ste sigurni?')) {
+    if(confirm('Are you sure?')) {
       this.employeeService.deleteOne(employeeId).subscribe(result => {
         this.getAllEmployee();
-        this.toastr.success('Uspjesno obrisano.');
+        this.toastr.success('Deleted successfully');
       })
     }
   }

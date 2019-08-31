@@ -33,10 +33,10 @@ export class WarehouseListComponent implements OnInit {
 
 
   onDelete(warehouseId) {
-    if(confirm('Jeste li ste sigurni?')) {
+    if(confirm('Are you sure?')) {
       this.warehouseService.deleteOne(warehouseId).subscribe(result => {
         this.getAllWarehouses();
-        this.toastr.success('Uspjesno obrisano');
+        this.toastr.success('Deleted successfully');
       })
     }
   }

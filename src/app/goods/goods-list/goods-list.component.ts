@@ -33,10 +33,10 @@ export class GoodsListComponent implements OnInit {
 
 
   onDelete(goodsId) {
-    if(confirm('Da li ste sigurni?')) {
+    if(confirm('Are you sure?')) {
       this.goodsService.deleteOne(goodsId).subscribe(result => {
         this.getAllGoods();
-        this.toastr.success('Uspjesno obrisano');
+        this.toastr.success('Deleted successfully');
       })
     }
   }

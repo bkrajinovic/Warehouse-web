@@ -15,7 +15,6 @@ export class LoginService {
     return this.http.post(environment.apiUrl + 'auth/register', formData);
   }
 
-  /* TODO: fix this */
   public login(formData) {
     return this.http.post(environment.apiUrl + 'auth/login', formData);
   }

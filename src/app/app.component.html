@@ -8,9 +8,6 @@
   <li class="nav-item">
     <a [routerLink]="['/cities']" class="nav-link" href="#">City</a>
   </li>
-  <!-- <li class="nav-item">
-      <a [routerLink]="['/cities/1']" class="nav-link" href="#">City1</a>
-    </li> -->
   <li class="nav-item">
     <a [routerLink]="['/warehouses']" class="nav-link" href="#">Warehouse</a>
   </li>
@@ -23,14 +20,13 @@
   <li class="nav-item">
     <a [routerLink]="['/positions']" class="nav-link" href="#">Position</a>
   </li>
-  <li class="nav-item dropdown ml-auto" *ngIf="user && user.email && user.email.length > 0">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {{ user.email }}
+  <li id="user" class="nav-item dropdown" *ngIf="user && user.email && user.email.length > 0">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQahsQhQfCt715aYlsTLSv77Phj6sfYiokEfA6093Ses21hvjL_Qg">
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="#">View Profile <i class="fa fa-user"></i></a>
+          <a class="dropdown-item" (click)="logout()" >Log Out <i class="fa fa-sign-out ml-4"></i> </a>
         </div>
       </li>
 </ul>

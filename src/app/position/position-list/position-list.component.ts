@@ -33,10 +33,10 @@ export class PositionListComponent implements OnInit {
 
 
   onDelete(positionId) {
-    if(confirm('Da li ste sigurni?')) {
+    if(confirm('Are you sure?')) {
       this.positionService.deleteOne(positionId).subscribe(result => {
         this.getAllPositions();
-        this.toastr.success('Uspjesno obrisano');
+        this.toastr.success('Deleted successfully');
       })
     }
   }
